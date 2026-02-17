@@ -1,0 +1,24 @@
+---
+
+- name: ping test
+  hosts: ios
+  connection: network_cli
+  become: yes
+  become_method: enable
+  gather_facts: false
+  
+  vars:
+    ansible_network_os: cisco.ios.ios
+
+
+  tasks:
+  
+  - name: ping
+    ios_ping:
+      dest: 10.11.10.3
+    register: output
+
+  - name: print output
+    ansible.builtin.debug:
+      var: output.rtt
+      var1: output.packet_loss
