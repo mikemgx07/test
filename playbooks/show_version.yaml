@@ -3,6 +3,8 @@
 - name: Cisco show version example
   hosts: ios
   gather_facts: false
+  collections:
+    - cisco.ios
 
   vars:
     ansible_connection: ansible.netcommon.network_cli
