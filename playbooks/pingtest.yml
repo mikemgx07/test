@@ -1,6 +1,6 @@
 ---
 
-- name: ping test
+- name: Ping test
   hosts: ios
   connection: network_cli
   become: yes
@@ -13,12 +13,12 @@
 
   tasks:
 
-  - name: ping
+  - name: Ping
     cisco.ios.ios_ping:
       dest: 10.11.10.3
     register: output
 
-  - name: print output
+  - name: Print output
     ansible.builtin.debug:
       var: output.rtt
       var1: output.packet_loss
