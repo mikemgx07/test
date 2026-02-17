@@ -23,12 +23,3 @@
   - name: Print output
     ansible.builtin.debug:
       var: output.stdout_lines
-
- # - name: Show 'ansible_*' values
-   # debug:
-     # msg: 
-       # - "{{ ansible_network_os }}"
-       # - "{{ ansible_connection }}"
-      
-
-
