@@ -13,6 +13,18 @@ jobs:
     steps:
       - name: check code out from github and into "ubuntu-latest" (or our environment)
         uses: actions/checkout@v4
-        
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11   # o la que uses
+
+      - name: Install Ansible
+        run: |
+          pip install ansible ansible-lint
+
+      - name: Install Cisco IOS collection
+        run: ansible-galaxy collection install cisco.ios
+
       - name: lint ansible playbook playbook.yml
         uses: ansible/ansible-lint@main              #in branch master
