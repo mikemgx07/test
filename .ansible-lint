@@ -1,0 +1,8 @@
+---
+# .ansible-lint
+
+exclude_paths:
+  - .github/
+  - ansible.cfg
+  - inventory
+  - .ansible-lint
