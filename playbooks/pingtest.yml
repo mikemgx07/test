@@ -6,6 +6,8 @@
   become: yes
   become_method: enable
   gather_facts: false
+  collections:
+    - cisco.ios
   
   vars:
     ansible_network_os: cisco.ios.ios
