@@ -1,4 +1,4 @@
-name: GitHub automations ansible-lint for best practice
+name: Ansible-lint for best practice
 
 on:
   pull_request:   # the list of conditions on which our automation triggers
