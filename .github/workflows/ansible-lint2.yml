@@ -16,5 +16,5 @@ jobs:
 
       - name: lint ansible playbook playbook.yml
         uses: ansible/ansible-lint@main             
-        with:
-          requirements_file: requirements.yml
+       # with:
+         # requirements_file: requirements.yml
