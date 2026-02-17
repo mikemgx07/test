@@ -7,19 +7,19 @@
   vars:
     ansible_connection: ansible.netcommon.network_cli
     ansible_network_os: cisco.ios.ios
-    ansible_become: yes               #esta linea y la siguiente es lo que hace que funcione en los 6500
+    ansible_become: false               # esta linea y la siguiente es lo que hace que funcione en los 6500
     ansible_become_method: enable
 
   tasks:
 
-  - name: Run show version on the routers
-    cisco.ios.ios_command:
-      commands: 
-        - show version
-        - show ip int br | in 10.11.10
-        - ping 10.11.10.3
-    register: output
+    - name: Run show version on the routers
+      cisco.ios.ios_command:
+        commands:
+          - show version
+          - show ip int br | in 10.11.10
+          - ping 10.11.10.3
+      register: output
 
-  - name: Print output
-    ansible.builtin.debug:
-      var: output.stdout_lines
+    - name: Print output
+      ansible.builtin.debug:
+        var: output.stdout_lines
