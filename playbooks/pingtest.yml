@@ -6,17 +6,15 @@
   become: yes
   become_method: enable
   gather_facts: false
-  collections:
-    - cisco.ios
   
   vars:
     ansible_network_os: cisco.ios.ios
 
 
   tasks:
-  
+
   - name: ping
-    ios_ping:
+    cisco.ios.ios_ping:
       dest: 10.11.10.3
     register: output
 
