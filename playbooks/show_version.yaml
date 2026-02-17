@@ -12,7 +12,7 @@
 
   tasks:
 
-  - name: run show version on the routers
+  - name: Run show version on the routers
     cisco.ios.ios_command:
       commands: 
         - show version
@@ -20,7 +20,7 @@
         - ping 10.11.10.3
     register: output
 
-  - name: print output
+  - name: Print output
     ansible.builtin.debug:
       var: output.stdout_lines
 
