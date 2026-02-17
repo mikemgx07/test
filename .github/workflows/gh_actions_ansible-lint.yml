@@ -6,14 +6,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  
+
   AnsibleLint:
     runs-on: ubuntu-latest     # name of a container (environment) to run your automations in
-    
+
     steps:
       - name: check code out from github and into "ubuntu-latest" (or our environment)
         uses: actions/checkout@v4
-      
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -24,7 +24,11 @@ jobs:
           pip install ansible ansible-lint
 
       - name: Install Cisco IOS collection
-        run: ansible-galaxy collection install cisco.ios
+        run: |
+          ansible-galaxy collection install cisco.ios
+
+      - name: List installed collections (debug)
+        run: ansible-galaxy collection list
 
       - name: lint ansible playbook playbook.yml
-        uses: ansible/ansible-lint@main              #in branch master
+        uses: ansible/ansible-lint@main              # in branch master
