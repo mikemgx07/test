@@ -3,6 +3,7 @@ name: GitHub automations ansible-lint for best practice
 on:
   pull_request   # the list of conditions on which our automation triggers
 
+workflow_dispatch:
 
 jobs:
   
