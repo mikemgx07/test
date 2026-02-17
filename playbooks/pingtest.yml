@@ -4,12 +4,11 @@
   hosts: ios
   connection: network_cli
   become: false
-  ansible_become_method: enable
   gather_facts: false
 
   vars:
     ansible_network_os: cisco.ios.ios
-
+    ansible_become_method: enable
 
   tasks:
 
