@@ -2,6 +2,8 @@ name: Ansible-lint for best practice
 
 on:
   pull_request:   # the list of conditions on which our automation triggers
+    paths:
+      - "playbooks/**"   # execute only if something change inside /playbook directory
 
   workflow_dispatch:
 
