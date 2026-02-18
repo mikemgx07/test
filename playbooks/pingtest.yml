@@ -11,7 +11,7 @@
     ansible_become_method: enable
 
   tasks:
-
+ 
     - name: Ping
       cisco.ios.ios_ping:
         dest: 10.11.10.3
