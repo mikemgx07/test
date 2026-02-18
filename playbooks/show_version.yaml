@@ -7,7 +7,7 @@
   vars:
     ansible_connection: ansible.netcommon.network_cli
     ansible_network_os: cisco.ios.ios
-    ansible_become: false               # esta linea y la siguiente es lo que hace que funcione en los 6500
+    ansible_become: false
     ansible_become_method: enable
 
   tasks:
