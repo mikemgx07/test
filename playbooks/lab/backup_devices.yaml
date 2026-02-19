@@ -1,0 +1,28 @@
+---
+
+- name: Backup devices
+  hosts: r1
+  gather_facts: false
+
+  vars:
+    ansible_connection: ansible.netcommon.network_cli
+    ansible_network_os: cisco.ios.ios
+    ansible_user: arkansas
+    ansible_password: arkansas
+    ansible_become: true
+    ansible_become_method: enable
+
+  tasks:
+
+    - name: Print date and time
+      ansible.builtin.debug:
+        msg: "{{ lookup('pipe', 'date +%Y-%m-%d@%H:%M:%S')}}"
+
+    - name: Backup devices
+      cisco.ios.ios_config:
+        backup: yes
+        backup_options:
+          dir_path: /backups/
+          filename: "{{ inventory_hostname }}_{{ lookup('pipe', 'date +%Y-%m-%d')}}_backup"
+
+
