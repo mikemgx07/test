@@ -1,0 +1,33 @@
+---
+
+- name: Cisco show version example
+  hosts: r1
+  gather_facts: false
+
+  vars:
+    ansible_connection: ansible.netcommon.network_cli
+    ansible_network_os: cisco.ios.ios
+    ansible_user: arkansas
+    ansible_password: arkansas
+    ansible_become: true
+    ansible_become_method: enable
+
+  tasks:
+
+    - name: Run show version on the routers
+      cisco.ios.ios_command:
+        commands:
+          - show version
+          - show ip int br | in 10.11.10
+          - ping 10.11.10.3
+      register: output
+
+    - name: Print output
+      ansible.builtin.debug:
+        var: output.stdout_lines
+
+    - name: Show 'ansible_*' values
+      ansible.builtin.debug:
+        msg:
+          - "{{ ansible_network_os }}"
+          - "{{ ansible_connection }}"
