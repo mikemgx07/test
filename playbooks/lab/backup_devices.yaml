@@ -24,4 +24,3 @@
         backup_options:
           dir_path: /backups/
           filename: "{{ inventory_hostname }}_{{ lookup('pipe', 'date +%Y-%m-%d') }}_backup"
-          
