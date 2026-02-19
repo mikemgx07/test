@@ -27,7 +27,7 @@
         var: output.stdout_lines
 
     - name: Show 'ansible_*' values
-      debug:
-        msg: 
+      ansible.builtin.debug:
+        msg:
           - "{{ ansible_network_os }}"
           - "{{ ansible_connection }}"
