@@ -16,13 +16,11 @@
 
     - name: Print date and time
       ansible.builtin.debug:
-        msg: "{{ lookup('pipe', 'date +%Y-%m-%d@%H:%M:%S')}}"
+        msg: "{{ lookup('pipe', 'date +%Y-%m-%d@%H:%M:%S') }}"
 
     - name: Backup devices
       cisco.ios.ios_config:
-        backup: yes
+        backup: true
         backup_options:
           dir_path: /backups/
-          filename: "{{ inventory_hostname }}_{{ lookup('pipe', 'date +%Y-%m-%d')}}_backup"
-
-
+          filename: "{{ inventory_hostname }}_{{ lookup('pipe', 'date +%Y-%m-%d') }}_backup"
