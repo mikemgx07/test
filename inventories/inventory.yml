@@ -1,0 +1,37 @@
+---
+all:
+
+  vars:
+    ansible_connection: ansible.netcommon.network_cli
+    #ansible_become: yes
+    #ansible_become_method: enable
+    ansible_user: arkansas
+    ansible_ssh_type: paramiko
+
+  children:
+    devices_roles_router:
+      hosts:
+        r1: {}
+        r2: {}
+    devices_roles_switch:
+       hosts:
+         s1: {}
+         s2: {}
+
+    platform_cisco_ios:
+      hosts:
+        r1:
+          ansible_host: 10.10.20.97
+        r2:
+          ansible_host: 10.10.20.12
+        s1:
+          ansible_host: 10.10.20.13
+          edificio: FM
+        s2:
+          ansible_host: 10.10.20.14
+          edificio: SRA
+
+      vars:
+        ansible_network_os: cisco.ios.ios
+
+    
