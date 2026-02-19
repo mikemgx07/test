@@ -1,0 +1,18 @@
+name: Execute Backup
+
+on:
+
+  workflow_dispatch:
+
+jobs:
+
+  AnsiblePlaybook:
+    runs-on: self-hosted
+
+    steps:
+      - name: Check code out from github and into "ubuntu-latest" (or our environment)
+        uses: actions/checkout@v4
+
+      - name: Execute Playbook
+        run: |
+          ansible-playbook -i inventories/inventory.yml playbooks/lab/backup_devices.yaml
